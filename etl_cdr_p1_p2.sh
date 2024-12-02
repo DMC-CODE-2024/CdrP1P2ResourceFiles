@@ -44,7 +44,7 @@ start_java_process()
 
 #    java -Dlog.level=${log_level} -Dlog.path=${log_path} -Dmodule.name=${module_name}_${2}  -Dlog4j.configurationFile=./log4j2.xml -Dspring.config.location=file:./application.properties,file:${commonConfigurationFilePath} -jar ${build} ${op_name} ${source_name} 1>/dev/null 2>${log_path}/${module_name}_${2}.error  &
 
-    java -Dlog.level=${log_level} -Dlog.path=${log_path} -Dmodule.name=${module_name}_${2}  -Dlog4j.configurationFile=./log4j2.xml -Dspring.config.location=file:./application.properties,file:${commonTest} -jar ${build} ${op_name} ${source_name} 1>/dev/null 2>${log_path}/${module_name}_${2}.error  &
+    java -Dlog.level=${log_level} -Dlog.path=${log_path} -Dmodule.name=${module_name}_${2}  -Dlog4j.configurationFile=./log4j2.xml -Dspring.config.location=file:./application.properties,file:${commonConfigurationFile} -jar ${build} ${op_name} ${source_name} 1>/dev/null 2>${log_path}/${module_name}_${2}.error  &
 
     echo "$(date) ${module_name} [${op_name}]-[${source_name}]: java process for ${module_name} $op_name $source_name started..."
 
@@ -200,3 +200,5 @@ echo "$(date) ${module_name} [${op_name}]: ==> calling next P3 process... "
 cd "${APP_HOME}/${main_module}_module/${main_module}_p3"
 
 ./${main_module}_p3.sh ${op_name}  
+
+
